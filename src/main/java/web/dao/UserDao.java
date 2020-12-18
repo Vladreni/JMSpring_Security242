@@ -14,6 +14,5 @@ public interface UserDao {
     User getUserById(Long id);
     User getUserByName(String name);
 
-    Role getDBRole(String role);
-    void addDBRole(Role role);
+
 }

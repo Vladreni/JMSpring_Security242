@@ -5,6 +5,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import web.model.Role;
 import web.model.User;
+import web.service.RoleService;
 import web.service.UserService;
 
 
@@ -13,15 +14,15 @@ public class DataInit {
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public DataInit(UserService userService, PasswordEncoder passwordEncoder) {
+    public DataInit(UserService userService, RoleService roleService, PasswordEncoder passwordEncoder) {
         this.passwordEncoder = passwordEncoder;
 
         //добавляем в БД две роли
         Role roleUser = new Role(1L, "ROLE_USER");
         Role roleAdmin = new Role(2L, "ROLE_ADMIN");
 
-        userService.addRole(roleUser);
-        userService.addRole(roleAdmin);
+        roleService.addRole(roleUser);
+        roleService.addRole(roleAdmin);
 
 
         //и двоих пользователей

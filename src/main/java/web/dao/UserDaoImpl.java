@@ -69,23 +69,6 @@ public class UserDaoImpl implements UserDao {
 
     }
 
-    @Override
-    public Role getDBRole(String role) {
-        Query q = (Query) entityManager.createQuery(
-                "select u from Role u where u.role = :role");
-        q.setParameter("role", role);
-
-        try {
-            return (Role) q.getSingleResult();
-        } catch (NoResultException nre) {
-            return null;
-        }
-    }
-
-    @Override
-    public void addDBRole(Role role) {
-        entityManager.persist(role);
-    }
 
     @Override
     public void update(User user) {

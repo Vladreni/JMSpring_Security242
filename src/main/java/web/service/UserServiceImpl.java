@@ -74,17 +74,7 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
-    @Transactional
-    @Override
-    public void addRole(Role role) {
 
-        Role roleFromDB = userDao.getDBRole(role.getRole());
-        if (roleFromDB != null) {
-            return ;
-        }
-
-        userDao.addDBRole(role);
-    }
 
     // «Пользователь» – это просто Object. В большинстве случаев он может быть
     //  приведен к классу UserDetails.
